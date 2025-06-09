@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Profiler 분석 결과</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <h1>📊 Profiler 프로그램</h1>
+      <form
+        id="uploadForm"
+        action="/upload-dynamic"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <input type="file" name="dataFiles" accept=".txt" multiple required />
+        <button type="submit">업로드 및 분석</button>
+      </form>
+    </div>
+
+    <div class="file-list" id="uploadedFiles"></div>
+
+    <div class="button-group">
+      <button type="button" class="stat-btn" data-stat="avg">평균값</button>
+      <button type="button" class="stat-btn" data-stat="median">중앙값</button>
+      <button type="button" class="stat-btn" data-stat="min">최소값</button>
+      <button type="button" class="stat-btn" data-stat="max">최대값</button>
+      <button type="button" class="stat-btn" data-stat="stdDev">
+        표준편차
+      </button>
+    </div>
+
+    <div class="chart-type">
+      <button type="button" class="chart-btn" data-type="bar">Bar</button>
+      <button type="button" class="chart-btn" data-type="line">Line</button>
+      <button type="button" class="chart-btn" data-type="polarArea">
+        PolarArea
+      </button>
+    </div>
+
+    <div class="selectors">
+      <div id="coreSelector"></div>
+      <div id="taskSelector"></div>
+    </div>
+
+    <canvas id="taskChart"></canvas>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script type="module" src="/js/upload.js"></script>
+    <script type="module" src="/js/selectors.js"></script>
+    <script type="module" src="/js/chart.js"></script>
+    <script type="module" src="/js/toast.js"></script>
+  </body>
+</html>

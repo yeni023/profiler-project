@@ -1,0 +1,26 @@
+{
+  "name": "profiler-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yeni023/profiler-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yeni023/profiler-project/issues"
+  },
+  "homepage": "https://github.com/yeni023/profiler-project#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "multer": "^2.0.1",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7"
+  }
+}
