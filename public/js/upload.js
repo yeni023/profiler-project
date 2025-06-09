@@ -1,6 +1,6 @@
 import { showToast } from "./toast.js";
 import { renderSelectors } from "./selectors.js";
-import { chartInstance, currentStat, chartType } from "./chart.js";
+import { chartInstance, chartState } from "./chart.js";
 
 const form = document.getElementById("uploadForm");
 const uploadedFilesDiv = document.getElementById("uploadedFiles");
@@ -99,7 +99,7 @@ statButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     statButtons.forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
-    currentStat = btn.dataset.stat;
+    chartState.currentStat = btn.dataset.stat;
     renderSelectors(selectedFile, selectedCore, selectedTask, setCore, setTask);
   });
 });
@@ -108,7 +108,7 @@ chartButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     chartButtons.forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
-    chartType = btn.dataset.type;
+    chartState.chartType = btn.dataset.type;
     renderSelectors(selectedFile, selectedCore, selectedTask, setCore, setTask);
   });
 });

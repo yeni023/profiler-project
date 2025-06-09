@@ -1,8 +1,11 @@
 import { showToast } from "./toast.js";
 
 export let chartInstance = null;
-export let currentStat = "avg";
-export let chartType = "bar";
+
+export const chartState = {
+  currentStat: "avg",
+  chartType: "bar",
+};
 
 export async function updateChart(
   chartCanvas,
@@ -23,17 +26,17 @@ export async function updateChart(
   const chartData = await res.json();
 
   const labels = chartData.map((item) => item.label);
-  const data = chartData.map((item) => item[currentStat]);
+  const data = chartData.map((item) => item[chartState.currentStat]);
 
   if (chartInstance) chartInstance.destroy();
 
   chartInstance = new Chart(chartCanvas, {
-    type: chartType,
+    type: chartState.chartType,
     data: {
       labels,
       datasets: [
         {
-          label: `${selectedFile} (${currentStat})`,
+          label: `${selectedFile} (${chartState.currentStat})`,
           data,
         },
       ],
